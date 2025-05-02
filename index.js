@@ -174,6 +174,11 @@ function addBackToTopButton() {
     backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     document.body.appendChild(backToTopBtn);
     
+    // İlk yüklemede kontrol et
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+    }
+    
     // Show/hide button based on scroll position
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 300) {
