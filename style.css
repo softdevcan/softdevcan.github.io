@@ -198,15 +198,14 @@
     gap: 20px;
   }
   
-  /* Skills Section */
-    /* CSS: Redesigned Skills Section */
-    .skills-category {
-    margin-bottom: 2rem;
+/* CSS: Compact Skills Section */
+.skills-category {
+    margin-bottom: 1.5rem;
   }
   
   .skills-category-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
     color: var(--primary-color);
@@ -221,34 +220,36 @@
   .skills-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 12px;
   }
   
   .skill-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 100px;
-    text-align: center;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 8px 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
   }
   
   .skill-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
   
   .skill-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    margin-bottom: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 8px;
     color: white;
-    font-size: 1.5rem;
+    font-size: 0.9rem;
   }
   
   .skill-name {
@@ -407,6 +408,10 @@ body.dark {
     background-color: #333;
     border-color: #555;
   }
+  body.dark .skill-item {
+    background-color: #333;
+    border-color: #555;
+  }
   
   body.dark footer {
     background-color: #333;
@@ -426,17 +431,22 @@ body.dark {
     /* Responsive adjustments */
     @media screen and (max-width: 768px) {
         .skills-group {
-            justify-content: center;
+          justify-content: flex-start;
         }
         
         .skill-item {
-            width: 90px;
+          padding: 6px 10px;
         }
         
         .skill-icon {
-            width: 50px;
-            height: 50px;
-            font-size: 1.2rem;
+          width: 28px;
+          height: 28px;
+          font-size: 0.8rem;
+          margin-right: 6px;
         }
-    }
+        
+        .skill-name {
+          font-size: 0.8rem;
+        }
+      }
   
