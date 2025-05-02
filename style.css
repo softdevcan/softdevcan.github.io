@@ -154,14 +154,68 @@
     gap: 10px;
   }
   
-  .skill-tag {
-    background-color: var(--accent-color);
+/* Skill tag temel stili */
+.skill-tag {
     padding: 5px 15px;
     border-radius: 30px;
     font-size: 0.9rem;
-    border: 1px solid var(--border-color);
+    margin: 5px;
+    color: white;
+    font-weight: 500;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
+  .skill-tag:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Programlama dilleri için renkler */
+  .skill-tag:nth-of-type(1) { background-color: #2d79c7; }  /* C# */
+  .skill-tag:nth-of-type(2) { background-color: #3572A5; }  /* Python */
+  .skill-tag:nth-of-type(3) { background-color: #02569B; }  /* Flutter */
+  .skill-tag:nth-of-type(4) { background-color: #f7df1e; color: black; } /* JavaScript */
+  .skill-tag:nth-of-type(5) { background-color: #e34c26; }  /* HTML */
+  .skill-tag:nth-of-type(6) { background-color: #264de4; }  /* CSS */
+  .skill-tag:nth-of-type(7) { background-color: #38bdf8; }  /* Tailwind CSS */
+  
+  /* Web Development Frameworks için renkler */
+  .skill-tag:nth-of-type(8) { background-color: #512bd4; }  /* ASP.NET Core */
+  .skill-tag:nth-of-type(9) { background-color: #0078d7; }  /* ASP.NET Framework */
+  .skill-tag:nth-of-type(10) { background-color: #092e20; } /* Django */
+  .skill-tag:nth-of-type(11) { background-color: #000000; } /* Flask */
+  .skill-tag:nth-of-type(12) { background-color: #009688; } /* FastAPI */
+  
+  /* ASP.NET Libraries için renkler */
+  .skill-tag:nth-of-type(13) { background-color: #5c2d91; } /* Entity Framework */
+  .skill-tag:nth-of-type(14) { background-color: #632CA6; } /* LINQ */
+  .skill-tag:nth-of-type(15) { background-color: #FF6600; } /* RabbitMQ */
+  .skill-tag:nth-of-type(16) { background-color: #1976d2; } /* JWT */
+  
+  /* DevOps ve Deployment için renkler */
+  .skill-tag:nth-of-type(17) { background-color: #2496ED; } /* Docker */
+  .skill-tag:nth-of-type(18) { background-color: #FCC624; color: black; } /* Linux */
+  .skill-tag:nth-of-type(19) { background-color: #F05032; } /* Git */
+  .skill-tag:nth-of-type(20) { background-color: #FFCA28; color: black; } /* Firebase */
+  
+  /* Databases için renkler */
+  .skill-tag:nth-of-type(21) { background-color: #CC2927; } /* MSSQL */
+  .skill-tag:nth-of-type(22) { background-color: #4479A1; } /* MySQL */
+  .skill-tag:nth-of-type(23) { background-color: #003B57; } /* SQLite */
+  .skill-tag:nth-of-type(24) { background-color: #336791; } /* PostgreSQL */
+  .skill-tag:nth-of-type(25) { background-color: #47A248; } /* MongoDB */
+  .skill-tag:nth-of-type(26) { background-color: #00684A; } /* NoSQL */
+  
+  /* Project Management için renkler */
+  .skill-tag:nth-of-type(27) { background-color: #0052CC; } /* Jira */
+  .skill-tag:nth-of-type(28) { background-color: #2B9348; } /* Agile */
+  .skill-tag:nth-of-type(29) { background-color: #27B6AF; } /* Scrum */
+  
+  /* Principles için renkler */
+  .skill-tag:nth-of-type(30) { background-color: #7952B3; } /* OOP */
+  .skill-tag:nth-of-type(31) { background-color: #D81B60; } /* SOLID */
+  .skill-tag:nth-of-type(32) { background-color: #43a047; } /* Clean Code */
   /* Experience Section */
   .experience-item, .education-item {
     margin-bottom: 30px;
