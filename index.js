@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectCards();
     addScrollAnimation();
     addDarkModeToggle();
+    addBackToTopButton();
     // Add year to copyright in footer
     updateCopyright();
 });
@@ -162,5 +163,31 @@ function addDarkModeToggle() {
             this.innerHTML = '<i class="fas fa-moon"></i>';
             localStorage.setItem('theme', 'light');
         }
+    });
+}
+
+// Back to top button fonksiyonu
+function addBackToTopButton() {
+    // Create button element
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(backToTopBtn);
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+    
+    // Scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 }
