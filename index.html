@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İsim Soyisim - Portföy</title>
+  <style>
+    :root {
+      --primary-color: #0366d6;
+      --secondary-color: #24292e;
+      --accent-color: #f6f8fa;
+      --text-color: #24292e;
+      --light-text: #586069;
+      --border-color: #e1e4e8;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #fff;
+    }
+    
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--accent-color);
+      padding: 40px 0;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .site-title {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--secondary-color);
+    }
+    
+    .site-subtitle {
+      font-size: 1.2rem;
+      color: var(--light-text);
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      color: var(--light-text);
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    nav {
+      margin-top: 30px;
+      width: 100%;
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      color: var(--secondary-color);
+      font-weight: 500;
+      padding: 5px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    /* Section Styles */
+    section {
+      margin-bottom: 60px;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    /* About Section */
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    /* Skills Section */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .skill-tag {
+      background-color: var(--accent-color);
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border-color);
+    }
+    
+    /* Experience Section */
+    .experience-item, .education-item {
+      margin-bottom: 30px;
+    }
+    
+    .item-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .item-subtitle {
+      color: var(--light-text);
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .project-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .project-content {
+      padding: 20px;
+    }
+    
+    .project-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+    
+    .project-tag {
+      background-color: var(--accent-color);
+      padding: 3px 10px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      border: 1px solid var(--border-color);
+    }
+    
+    /* Contact Section */
+    .contact-content {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background-color: var(--accent-color);
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 60px;
+      border-top: 1px solid var(--border-color);
+      color: var(--light-text);
+    }
+    
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <img src="/api/placeholder/400/400" alt="Profil Fotoğrafı" class="profile-img">
+        <h1 class="site-title">İsim Soyisim</h1>
+        <p class="site-subtitle">Yazılım Geliştirici | UI/UX Tasarımcı</p>
+        <div class="social-links">
+          <a href="https://github.com/kullaniciadi" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://linkedin.com/in/kullaniciadi" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="mailto:eposta@ornek.com" title="E-posta">
+            <i class="fas fa-envelope"></i> E-posta
+          </a>
+        </div>
+        
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#hakkimda">Hakkımda</a></li>
+            <li><a href="#deneyim">Deneyim</a></li>
+            <li><a href="#beceriler">Beceriler</a></li>
+            <li><a href="#projeler">Projeler</a></li>
+            <li><a href="#egitim">Eğitim</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <main class="container">
+    <!-- About Section -->
+    <section id="hakkimda">
+      <h2 class="section-title">Hakkımda</h2>
+      <div class="about-content">
+        <p>
+          Merhaba! Ben [İsim Soyisim], [X] yıllık deneyime sahip bir yazılım geliştiricisiyim. [Teknoloji veya sektör] alanında uzmanlaşmış olup, [beceri veya ilgi alanı] konularında tutkuluyum.
+        </p>
+        <p>
+          Kariyerim boyunca, [başarı veya deneyim] gibi önemli projelerde çalıştım ve [beceri veya teknoloji] konularında derin bilgi edindim. Sürekli öğrenmeye ve yeni teknolojileri keşfetmeye büyük önem veriyorum.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="beceriler">
+      <h2 class="section-title">Beceriler</h2>
+      <div class="skills-container">
+        <span class="skill-tag">HTML5</span>
+        <span class="skill-tag">CSS3</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Responsive Design</span>
+        <span class="skill-tag">UI/UX Design</span>
+        <span class="skill-tag">RESTful API</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Figma</span>
+      </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="deneyim">
+      <h2 class="section-title">Deneyim</h2>
+      
+      <div class="experience-item">
+        <h3 class="item-title">Kıdemli Yazılım Geliştirici</h3>
+        <div class="item-subtitle">
+          <span>XYZ Teknoloji</span>
+          <span>Ocak 2020 - Günümüz</span>
+        </div>
+        <p>
+          • Web uygulamaları geliştirdim ve mevcut uygulamaları modernize ettim<br>
+          • Ekip liderliği yaparak 5 kişilik bir geliştirme ekibine mentorluk yaptım<br>
+          • Müşteri gereksinimlerini analiz ederek teknik çözümler tasarladım<br>
+          • Performans optimizasyonları ile sayfa yükleme sürelerini %40 azalttım
+        </p>
+      </div>
+      
+      <div class="experience-item">
+        <h3 class="item-title">Frontend Geliştirici</h3>
+        <div class="item-subtitle">
+          <span>ABC Yazılım</span>
+          <span>Haziran 2017 - Aralık 2019</span>
+        </div>
+        <p>
+          • Responsive web siteleri ve uygulamalar geliştirdim<br>
+          • UI/UX tasarım ekibiyle işbirliği yaparak kullanıcı deneyimini iyileştirdim<br>
+          • JavaScript framework'leri kullanarak etkileşimli kullanıcı arayüzleri oluşturdum<br>
+          • Cross-browser uyumluluk sorunlarını çözdüm
+        </p>
+      </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projeler">
+      <h2 class="section-title">Projeler</h2>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <img src="/api/placeholder/400/320" alt="Proje 1" class="project-img">
+          <div class="project-content">
+            <h3 class="project-title">E-Ticaret Platformu</h3>
+            <p>Modern bir e-ticaret platformu geliştirdim. Kullanıcı deneyimini ön planda tutarak, hızlı ve responsive bir tasarım oluşturdum.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+          <img src="/api/placeholder/400/320" alt="Proje 2" class="project-img">
+          <div class="project-content">
+            <h3 class="project-title">Task Yönetim Uygulaması</h3>
+            <p>Ekipler için geliştirilmiş, gerçek zamanlı senkronizasyon özelliğine sahip bir görev yönetim uygulaması.</p>
+            <div class="project-tags">
+              <span class="project-tag">Vue.js</span>
+              <span class="project-tag">Firebase</span>
+              <span class="project-tag">CSS Grid</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+          <img src="/api/placeholder/400/320" alt="Proje 3" class="project-img">
+          <div class="project-content">
+            <h3 class="project-title">Portfolyo Sitesi</h3>
+            <p>Tasarımcılar için özelleştirilmiş, minimal bir portfolyo sitesi şablonu. Kolay düzenlenebilir ve yönetilebilir.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML5</span>
+              <span class="project-tag">SCSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="egitim">
+      <h2 class="section-title">Eğitim</h2>
+      
+      <div class="education-item">
+        <h3 class="item-title">Bilgisayar Mühendisliği Yüksek Lisans</h3>
+        <div class="item-subtitle">
+          <span>XYZ Üniversitesi</span>
+          <span>2015 - 2017</span>
+        </div>
+        <p>Yapay Zeka ve Makine Öğrenmesi üzerine odaklanarak yüksek onur derecesiyle mezun oldum.</p>
+      </div>
+      
+      <div class="education-item">
+        <h3 class="item-title">Bilgisayar Mühendisliği Lisans</h3>
+        <div class="item-subtitle">
+          <span>ABC Üniversitesi</span>
+          <span>2011 - 2015</span>
+        </div>
+        <p>Web teknolojileri ve yazılım mühendisliği konularında uzmanlaşarak onur derecesiyle mezun oldum.</p>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="iletisim">
+      <h2 class="section-title">İletişim</h2>
+      <div class="contact-content">
+        <p>Projeler, iş birlikleri veya herhangi bir soru için benimle iletişime geçmekten çekinmeyin.</p>
+        <p>📧 E-posta: <a href="mailto:akyildirimcan@gmail.com">eposta@ornek.com</a></p>
+        <p>🔗 LinkedIn: <a href="https://linkedin.com/in/canakyldrm" target="_blank">linkedin.com/in/kullaniciadi</a></p>
+        <p>📱 Telefon: +90 552 256 14 05</p>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 softdevcan. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
