@@ -170,14 +170,9 @@ function addDarkModeToggle() {
 function addBackToTopButton() {
     // Create button element
     const backToTopBtn = document.createElement('button');
-    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.className = 'back-to-top show'; // Başlangıçta "show" class'ını ekledim (test için)
     backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     document.body.appendChild(backToTopBtn);
-    
-    // İlk yüklemede kontrol et
-    if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('show');
-    }
     
     // Show/hide button based on scroll position
     window.addEventListener('scroll', function() {
