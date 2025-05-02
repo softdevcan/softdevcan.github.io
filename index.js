@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSkillsAnimation();
     initProjectCards();
     addScrollAnimation();
-    
+    addDarkModeToggle();
     // Add year to copyright in footer
     updateCopyright();
 });
