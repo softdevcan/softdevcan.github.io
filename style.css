@@ -75,19 +75,15 @@
         align-items: center;
         font-size: 1.2rem;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        z-index: 99100;
-        opacity: 0;
-        visibility: hidden;
+        z-index: 9999; /* z-index'i yükselttim */
+        opacity: 0; /* Bu satırı değiştirmedim */
+        visibility: hidden; /* Bu satırı değiştirmedim */
         transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
     }
     
     .back-to-top.show {
         opacity: 1;
         visibility: visible;
-    }
-    
-    .back-to-top:hover {
-        background-color: var(--secondary-color);
     }
 
   /* Header Styles */
