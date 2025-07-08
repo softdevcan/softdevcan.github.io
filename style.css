@@ -248,7 +248,8 @@
     height: 32px;
     border-radius: 50%;
     margin-right: 8px;
-    color: white;
+    /* Use default dark text color in light theme for better contrast */
+    color: var(--secondary-color);
     font-size: 0.9rem;
   }
   
@@ -415,6 +416,11 @@ body.dark {
   
   body.dark footer {
     background-color: #333;
+  }
+  
+  body.dark .skill-icon {
+    /* In dark mode ensure icons are light for visibility */
+    color: #f0f0f0;
   }
   
   /* For typewriter effect - cursor blinking */
